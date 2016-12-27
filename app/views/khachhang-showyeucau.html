@@ -1,0 +1,42 @@
+<md-dialog aria-label="Danh sách yêu cầy của khách hàng" ng-cloak flex="60">
+	<form>
+		<md-toolbar>
+			<div class="md-toolbar-tools">
+				<h2>Danh sách yêu cầu của khách hàng ({{vm.cus.hoten}})</h2>
+				<span flex></span>
+				<md-button class="md-icon-button" ng-click="cancel()">
+					<md-icon md-svg-src="images/cancel.svg" aria-label="Close dialog"></md-icon>
+				</md-button>
+			</div>
+		</md-toolbar>
+		<!--<div layout-align="center center" layout = "row">
+			<span class="error">{{vm.message}}</span>
+		</div>-->
+		<md-dialog-content>
+			<div layout="column" layout-align="center">
+				<h4 class="link">YÊU CẦU KHÁCH HÀNG</h4>
+				<div class="draw"></div>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Dịch vụ yêu cầu</th>
+							<th>Ngày làm</th>
+							<th>Bắt đầu</th>
+							<th>Kết thúc</th>
+							<th>Phí dịch vụ</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="yc in vm.yeucauKH">
+							<td>{{yc.dichvuyc.toString()}}</td>
+							<td>{{yc.ngaylam | date: 'dd/MM/yyyy'}}</td>
+							<td>{{yc.giobatdau | date: 'HH:mm'}}</td>
+							<td>{{yc.gioketthuc | date: 'HH:mm'}}</td>
+							<td>{{yc.phidichvu | number : fractionSize}} VNĐ</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</md-dialog-content>
+	</form>
+</md-dialog>
